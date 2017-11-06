@@ -1,12 +1,14 @@
 const { Router } = require('express')
+const usersGateway = require('../gateway/users-gateway')
 
-const usersRouter = (users) => {
+const usersRouter = users => {
+  const { createUser, findAllUsers, findUser } = usersGateway(users)
   const router = new Router()
 
   router
     .post('/', async ({ body }, res) => {
       try {
-        const user = await users.insertOne(body)
+        const user = await createUser(body)
         res.status(201).json(user)
       }
       catch (err) {
@@ -16,7 +18,7 @@ const usersRouter = (users) => {
     })
     .get('/', async (req, res) => {
       try {
-        const usersData = await users.find().toArray()
+        const usersData = await findAllUsers()
         res.status(202).json(usersData)
       }
       catch (err) {
@@ -26,7 +28,7 @@ const usersRouter = (users) => {
     })
     .get('/:id', async ({ params: { id } }, res) => {
       try {
-        const user = await users.findOne({ id })
+        const user = await findUser(id)
         res.status(202).json(user)
       }
       catch (err) {
