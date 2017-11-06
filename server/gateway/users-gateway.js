@@ -1,15 +1,15 @@
 module.exports = users => {
   return {
     async createUser(userInfo) {
-      const { data } = await users.insertOne(userInfo)
-      return data
+      const user = await users.insertOne(userInfo)
+      return user
     },
     async findAllUsers() {
       const usersData = await users.find().toArray()
       return usersData
     },
-    async findUser(query) {
-      const user = await users.findOne({ query })
+    async findUserById(id) {
+      const user = await users.findOne({ id })
       return user
     }
   }
