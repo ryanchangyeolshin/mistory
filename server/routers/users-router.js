@@ -24,6 +24,16 @@ const usersRouter = (users) => {
         res.sendStatus(404)
       }
     })
+    .get('/:id', async ({ params: { id } }, res) => {
+      try {
+        const user = await users.findOne({ id })
+        res.status(202).json(user)
+      }
+      catch (err) {
+        console.error(err)
+        res.sendStatus(404)
+      }
+    })
 
   return router
 }
