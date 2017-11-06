@@ -8,7 +8,14 @@
     "lint:html": "htmlhint ./**/*.html",
     "lint:css": "stylelint ./**/*.css",
     "lint:js": "eslint ./**/*.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test/",
+    "tdd": "mocha test/ -w -R min",
+    "cover": "nyc --reporter=lcov --reporter=text npm test",
+    "bundle": "browserify ./client/index.js -t babelify -o ./server/public/main.js",
+    "watch:client": "watchify ./client/index.js -vd -t babelify -o ./server/public/main.js",
+    "watch:server": "nodemon server",
+    "watch:sync": "browser-sync start -c ./sync.js",
+    "watch": "npm-run-all --parallel watch:*"
   },
   "repository": {
     "type": "git",
