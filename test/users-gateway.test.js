@@ -9,7 +9,7 @@ describe('usersGateway', () => {
   let db
   let users
   let user
-  let createUser, findAllUsers, findUserById
+  let createUser
 
   before('Connect to MongoDB', done => {
     MongoClient.connect(process.env.MONGODB_URI, (err, _db) => {
@@ -27,8 +27,6 @@ describe('usersGateway', () => {
         confirmEmail: 'johnsmith@gmail.com'
       }
       createUser = usersGateway(users).createUser
-      findAllUsers = usersGateway(users).findAllUsers
-      findUserById = usersGateway(users).findUserById
       done()
     })
   })
@@ -60,20 +58,6 @@ describe('usersGateway', () => {
       expect(birthdate).to.equal(testUser.birthdate)
       expect(email).to.equal(testUser.email)
       expect(confirmEmail).to.equal(testUser.confirmEmail)
-    })
-  })
-
-  describe('findAllUsers()', () => {
-    it('should find all of the users and return it', async () => {
-      const usersData = await findAllUsers()
-      expect(usersData[0]).to.deep.equal(user)
-    })
-  })
-
-  describe('findUser()', () => {
-    it('should find the one user and return it', async () => {
-      const userData = await findUserById(user.id)
-      expect(userData).to.deep.equal(user)
     })
   })
 })

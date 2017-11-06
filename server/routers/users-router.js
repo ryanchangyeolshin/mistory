@@ -2,39 +2,13 @@ const { Router } = require('express')
 const usersGateway = require('../gateway/users-gateway')
 
 const usersRouter = users => {
-  const { createUser, findAllUsers, findUser } = usersGateway(users)
+  const { createUser } = usersGateway(users)
   const router = new Router()
 
   router
     .post('/', async ({ body }, res) => {
-      try {
-        const user = await createUser(body)
-        res.status(201).json(user)
-      }
-      catch (err) {
-        console.error(err)
-        res.sendStatus(400)
-      }
-    })
-    .get('/', async (req, res) => {
-      try {
-        const usersData = await findAllUsers()
-        res.status(202).json(usersData)
-      }
-      catch (err) {
-        console.error(err)
-        res.sendStatus(404)
-      }
-    })
-    .get('/:id', async ({ params: { id } }, res) => {
-      try {
-        const user = await findUser(id)
-        res.status(202).json(user)
-      }
-      catch (err) {
-        console.error(err)
-        res.sendStatus(404)
-      }
+      const user = await createUser(body)
+      res.status(201).json(user)
     })
 
   return router
