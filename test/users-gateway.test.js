@@ -50,11 +50,9 @@ describe('usersGateway', () => {
         email: 'janedoe@gmail.com',
         confirmEmail: 'janedoe@gmail.com'
       }
-      const { ops } = await createUser(testUser)
-      const { id, username, password, birthdate, email, confirmEmail } = ops[0]
+      const { id, username, birthdate, email, confirmEmail } = await createUser(testUser)
       expect(id).to.equal(testUser.id)
       expect(username).to.equal(testUser.username)
-      expect(password).to.equal(testUser.password)
       expect(birthdate).to.equal(testUser.birthdate)
       expect(email).to.equal(testUser.email)
       expect(confirmEmail).to.equal(testUser.confirmEmail)

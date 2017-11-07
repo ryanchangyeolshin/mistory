@@ -1,8 +1,11 @@
+const omit = require('../../utils/utils')
+
 module.exports = users => {
   return {
     async createUser(userInfo) {
-      const user = await users.insertOne(userInfo)
-      return user
+      const { ops } = await users.insertOne(userInfo)
+      const omitted = omit(ops[0], ['password'])
+      return omitted
     }
   }
 }

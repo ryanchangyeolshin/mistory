@@ -8,7 +8,6 @@ import UsersForm from './users-form'
 export default class App extends Component {
   constructor(props) {
     super(props)
-    this.userFormStyle = { margin: '50px 0', padding: '20px 30px', textAlign: 'center' }
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
@@ -34,7 +33,7 @@ export default class App extends Component {
           title="Mistory"
           iconClassNameRight="muidocs-icon-navigation-expand-more"
         />
-        <UsersForm style={this.userFormStyle} handleSubmit={this.handleSubmit}/>
+        <UsersForm handleSubmit={this.handleSubmit}/>
       </MuiThemeProvider>
     )
   }
