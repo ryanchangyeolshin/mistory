@@ -52,13 +52,13 @@ describe('users-router', () => {
         email: 'janedoe@gmail.com',
         confirmEmail: 'janedoe@gmail.com'
       }
-      const { status, config: { data } } = await axios.post(`http://localhost:${process.env.PORT}/api/users`, testUser)
-      expect(data).to.include(testUser.id)
-      expect(data).to.include(testUser.username)
-      expect(data).to.include(testUser.password)
-      expect(data).to.include(testUser.birthdate)
-      expect(data).to.include(testUser.email)
-      expect(data).to.include(testUser.confirmEmail)
+      const { status, data } = await axios.post(`http://localhost:${process.env.PORT}/api/users`, testUser)
+      const { id, username, birthdate, email, confirmEmail } = data
+      expect(id).to.include(testUser.id)
+      expect(username).to.include(testUser.username)
+      expect(birthdate).to.include(testUser.birthdate)
+      expect(email).to.include(testUser.email)
+      expect(confirmEmail).to.include(testUser.confirmEmail)
       expect(status).to.equal(201)
     })
   })
