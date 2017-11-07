@@ -40,7 +40,7 @@ export default function StoryList({ stories }) {
         >
           {stories.map((story) => (
             <GridTile
-              key={story.image}
+              key={story.id}
               title={story.title}
               subtitle={<span>by <b>{story.author}</b></span>}
               actionIcon={<RaisedButton label="More" primary={true} style={styles.button} />}
