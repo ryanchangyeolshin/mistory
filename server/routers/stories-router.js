@@ -7,8 +7,8 @@ const storiesRouter = stories => {
 
   router
     .get('/', async (req, res) => {
-      const user = await findAllStories()
-      res.status(200).json(user)
+      const stories = await findAllStories()
+      res.status(200).json(stories)
     })
 
   return router
