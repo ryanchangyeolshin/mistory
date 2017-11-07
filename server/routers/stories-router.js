@@ -1,0 +1,17 @@
+const { Router } = require('express')
+const storiesGateway = require('../gateway/stories-gateway')
+
+const storiesRouter = stories => {
+  const { findAllStories } = storiesGateway(stories)
+  const router = new Router()
+
+  router
+    .get('/', async (req, res) => {
+      const user = await findAllStories()
+      res.status(200).json(user)
+    })
+
+  return router
+}
+
+module.exports = storiesRouter
