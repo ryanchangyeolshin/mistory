@@ -12,6 +12,7 @@
     "tdd": "mocha test/ -w -R min",
     "cover": "nyc --reporter=lcov --reporter=text npm test",
     "bundle": "browserify ./client/index.js -t babelify -o ./server/public/main.js",
+    "seed": "node seed.js",
     "watch:client": "watchify ./client/index.js -vd -t babelify -o ./server/public/main.js",
     "watch:server": "nodemon server",
     "watch:sync": "browser-sync start -c ./sync.js",
@@ -60,6 +61,7 @@
     "mongodb": "^2.2.33",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
+    "react-router-dom": "^4.2.2",
     "uuid": "^3.1.0"
   }
 }
