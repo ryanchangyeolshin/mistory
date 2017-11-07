@@ -4,9 +4,11 @@ import TextField from 'material-ui/TextField'
 import DatePicker from 'material-ui/DatePicker'
 import RaisedButton from 'material-ui/RaisedButton'
 
+const userFormStyle = { margin: '50px 0', padding: '20px 30px', textAlign: 'center' }
+
 export default function UsersForm({ style, handleSubmit }) {
   return (
-    <Paper style={style} zDepth={1}>
+    <Paper style={userFormStyle} zDepth={1}>
       <h1>Create an Account!</h1>
       <form onSubmit={handleSubmit}>
         <TextField
