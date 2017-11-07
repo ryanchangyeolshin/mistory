@@ -34,7 +34,7 @@ describe('storiesGateway', () => {
     db.close(() => done())
   })
 
-  beforeEach('Delete the users collection and insert one user', async () => {
+  beforeEach('Delete the stories collection and insert one stories', async () => {
     await stories.deleteMany({})
     await stories.insertOne(story)
   })
