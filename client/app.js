@@ -37,7 +37,7 @@ export default class App extends Component {
   render() {
     return (
       <MuiThemeProvider>
-        <AppBar title="Mistory" />
+        <AppBar title="Mistory" color="#212121" style={ { marginBottom: 30 } } />
         <Route exact path="/" render={props => <StoryList {...props} stories={this.state.stories} />} />
         <Route exact path="/signup" render={props => <UsersForm {...props} handleSubmit={this.handleSubmit} />} />
       </MuiThemeProvider>
