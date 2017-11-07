@@ -32,6 +32,7 @@ MongoClient.connect(process.env.MONGODB_URI, async (err, db) => {
     process.exit(1)
   }
   const stories = db.collection('stories')
+  await stories.deleteMany({})
   await stories.insertMany(storiesData)
   db.close(() => console.log('DATA HAS BEEN SEEDED'))
 })
