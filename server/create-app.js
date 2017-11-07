@@ -1,6 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-const storiesRouter = require('./router/stories-router')
+const storiesRouter = require('./routers/stories-router')
 const usersRouter = require('./routers/users-router')
 const path = require('path')
 
