@@ -17,7 +17,7 @@ describe('storiesGateway', () => {
         done(err)
       }
       db = _db
-      stories = db.collection('users')
+      stories = db.collection('stories')
       story = {
         id: uuid(),
         title: 'I saw a ghost!',
