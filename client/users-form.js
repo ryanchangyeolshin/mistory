@@ -6,7 +6,7 @@ import RaisedButton from 'material-ui/RaisedButton'
 
 const userFormStyle = { margin: '50px 0', padding: '20px 30px', textAlign: 'center' }
 
-export default function UsersForm({ style, handleSubmit }) {
+export default function UsersForm({ handleSubmit }) {
   return (
     <Paper style={userFormStyle} zDepth={1}>
       <h1>Create an Account!</h1>
