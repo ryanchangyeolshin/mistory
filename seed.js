@@ -9,7 +9,7 @@ const storiesData = [
     author: 'Ryan Shin',
     content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     views: 9000,
-    image: 'https://i.pinimg.com/originals/4e/b5/5b/4eb55b8b5de9bd8ae4ecec61b5fb2f55.jpg'
+    image: 'https://cdn0.tnwcdn.com/wp-content/blogs.dir/1/files/2017/10/ghost-796x498.jpg'
   },
   {
     id: uuid(),
@@ -17,7 +17,7 @@ const storiesData = [
     author: 'Peter Hermansen',
     content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     views: 2,
-    image: 'https://i.pinimg.com/736x/f8/57/06/f85706c5f5e0b974a533ad6c8d1af258--orchids-garden-autumn-photos.jpg'
+    image: 'http://cdn.edgecast.steamstatic.com/steam/apps/252950/header.jpg?t=1507673535'
   },
   {
     id: uuid(),
@@ -25,7 +25,23 @@ const storiesData = [
     author: 'Riley Rangel',
     content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     views: 40000,
-    image: 'https://i.pinimg.com/736x/a7/0f/a2/a70fa29cbdd07046f782ba7ac952a2af--charlotte-north-carolina-charlotte-nc.jpg'
+    image: 'http://www.scam-detector.com/support/images/blog_img/thum/blog-1479185078.jpg'
+  },
+  {
+    id: uuid(),
+    title: 'Life as a Software Developer',
+    author: 'Ron Perris',
+    content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    views: 9999,
+    image: 'https://www.techdotmatrix.com/wp-content/uploads/2016/10/Programming-languages.jpg'
+  },
+  {
+    id: uuid(),
+    title: 'Jamazon',
+    author: 'Tim Davis',
+    content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    views: 25000,
+    image: 'https://vignette.wikia.nocookie.net/clubpenguin/images/8/8a/Music_Jam_09_Logo.png/revision/latest?cb=20140304014809'
   }
 ]
 
