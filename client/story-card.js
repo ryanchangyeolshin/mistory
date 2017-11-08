@@ -27,13 +27,13 @@ export default function StoryCard({ story }) {
           title={story.title}
         />
         <CardContent>
-          <Typography type="title" numberOfLines={1} component="h2">
+          <Typography type="title">
             <OverFlowEllipsis>{story.title}</OverFlowEllipsis>
           </Typography>
-          <Typography type="caption" style={styles.captions} component="p">
+          <Typography type="caption" style={styles.captions}>
             <OverFlowEllipsis>By: <strong>{story.author}</strong></OverFlowEllipsis>
           </Typography>
-          <Typography type="caption" style={styles.captions} component="p">
+          <Typography type="caption" style={styles.captions}>
             <OverFlowEllipsis>Views: <strong>{story.views}</strong></OverFlowEllipsis>
           </Typography>
         </CardContent>
