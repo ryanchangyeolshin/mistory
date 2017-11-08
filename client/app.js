@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import { Route } from 'react-router-dom'
-import AppBar from 'material-ui/AppBar'
 import axios from 'axios'
 import uuid from 'uuid/v4'
+import ButtonAppBar from './app-bar'
 import StoryList from './story-list'
 import UsersForm from './users-form'
 
@@ -36,11 +35,11 @@ export default class App extends Component {
 
   render() {
     return (
-      <MuiThemeProvider>
-        <AppBar title="Mistory" color="#212121" style={ { marginBottom: 30 } } />
+      <div>
+        <ButtonAppBar />
         <Route exact path="/" render={props => <StoryList {...props} stories={this.state.stories} />} />
         <Route exact path="/signup" render={props => <UsersForm {...props} handleSubmit={this.handleSubmit} />} />
-      </MuiThemeProvider>
+      </div>
     )
   }
 }
