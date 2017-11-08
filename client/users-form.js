@@ -1,6 +1,7 @@
 import React from 'react'
 import Paper from 'material-ui/Paper'
 import TextField from 'material-ui/TextField'
+import Typography from 'material-ui/Typography'
 import Button from 'material-ui/Button'
 
 const styles = {
@@ -12,9 +13,6 @@ const styles = {
     paddingRight: 100,
     paddingTop: 40,
     textAlign: 'center'
-  },
-  header: {
-    fontFamily: 'Roboto'
   },
   textField: {
     marginTop: 30
@@ -28,7 +26,7 @@ const styles = {
 export default function UsersForm({ handleSubmit }) {
   return (
     <Paper style={styles.usersForm}>
-      <h1 style={styles.header}>Create an Account!</h1>
+      <Typography type="headline" component="h1">Create an Account!</Typography>
       <form onSubmit={handleSubmit}>
         <div>
           <TextField
