@@ -1,62 +1,83 @@
 import React from 'react'
 import Paper from 'material-ui/Paper'
 import TextField from 'material-ui/TextField'
-import DatePicker from 'material-ui/DatePicker'
-import RaisedButton from 'material-ui/RaisedButton'
+import Typography from 'material-ui/Typography'
+import Button from 'material-ui/Button'
 
-const userFormStyle = { margin: '50px 0', padding: '20px 30px', textAlign: 'center' }
+const styles = {
+  usersForm: {
+    marginLeft: 100,
+    marginRight: 100,
+    marginTop: 50,
+    paddingLeft: 100,
+    paddingRight: 100,
+    paddingTop: 40,
+    textAlign: 'center'
+  },
+  textField: {
+    marginTop: 30
+  },
+  submit: {
+    marginTop: 30,
+    marginBottom: 30
+  }
+}
 
-export default function UsersForm({ style, handleSubmit }) {
+export default function UsersForm({ handleSubmit }) {
   return (
-    <Paper style={userFormStyle} zDepth={1}>
-      <h1>Create an Account!</h1>
+    <Paper style={styles.usersForm}>
+      <Typography type="headline" component="h1">Create an Account!</Typography>
       <form onSubmit={handleSubmit}>
         <div>
           <TextField
-            hintText="Please type a username."
-            floatingLabelText="Username"
             type="text"
+            label="Username"
             name="username"
-            fullWidth = {true}
+            style={styles.textField}
+            fullWidth={true}
           />
         </div>
         <div>
           <TextField
-            hintText="Please type a password."
-            floatingLabelText="Password"
             type="password"
+            label="Password"
             name="password"
-            fullWidth = {true}
+            style={styles.textField}
+            fullWidth={true}
           />
         </div>
         <div>
-          <DatePicker
-            hintText="Please provide your birthdate."
-            openToYearSelection={true}
-            fullWidth = {true}
+          <TextField
+            id="birthdate"
             name="birthdate"
-            style={{ marginTop: '10px' }}
+            label="Birthdate"
+            type="date"
+            InputLabelProps={{
+              shrink: true
+            }}
+            style={styles.textField}
+            fullWidth={true}
           />
         </div>
         <div>
           <TextField
-            hintText="Please type your email."
-            floatingLabelText="Email Address"
             type="email"
+            label="Email Address"
             name="email"
-            fullWidth = {true}
+            style={styles.textField}
+            fullWidth={true}
           />
         </div>
         <div>
           <TextField
-            hintText="Please confirm your email address."
-            floatingLabelText="Confirm Email Address"
             type="email"
+            label="Confirm Email Address"
             name="confirmEmail"
-            fullWidth = {true}
+            style={styles.textField}
+            fullWidth={true}
           />
         </div>
-        <RaisedButton type="submit" label="Submit" primary={true} style={{ margin: '20px 0' }} />
+        <Button raised color="primary" type="submit" style={styles.submit}>Submit</Button>
       </form>
     </Paper>
   )

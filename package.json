@@ -12,6 +12,7 @@
     "tdd": "mocha test/ -w -R min",
     "cover": "nyc --reporter=lcov --reporter=text npm test",
     "bundle": "browserify ./client/index.js -t babelify -o ./server/public/main.js",
+    "seed": "node seed.js",
     "watch:client": "watchify ./client/index.js -vd -t babelify -o ./server/public/main.js",
     "watch:server": "nodemon server",
     "watch:sync": "browser-sync start -c ./sync.js",
@@ -56,10 +57,13 @@
     "body-parser": "^1.18.2",
     "dotenv": "^4.0.0",
     "express": "^4.16.2",
-    "material-ui": "^0.19.4",
+    "material-ui": "^1.0.0-beta.20",
+    "material-ui-icons": "^1.0.0-beta.17",
     "mongodb": "^2.2.33",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
+    "react-overflow-ellipsis": "^1.0.3",
+    "react-router-dom": "^4.2.2",
     "uuid": "^3.1.0"
   }
 }

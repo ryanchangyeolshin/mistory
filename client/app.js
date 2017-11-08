@@ -1,14 +1,21 @@
 import React, { Component } from 'react'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import AppBar from 'material-ui/AppBar'
+import { Route } from 'react-router-dom'
 import axios from 'axios'
 import uuid from 'uuid/v4'
+import ButtonAppBar from './app-bar'
+import StoryList from './story-list'
 import UsersForm from './users-form'
 
 export default class App extends Component {
   constructor(props) {
     super(props)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.state = { stories: [] }
+  }
+
+  async componentDidMount() {
+    const { data } = await axios.get('/api/stories')
+    this.setState({ stories: data })
   }
 
   async handleSubmit(e) {
@@ -28,13 +35,11 @@ export default class App extends Component {
 
   render() {
     return (
-      <MuiThemeProvider>
-        <AppBar
-          title="Mistory"
-          iconClassNameRight="muidocs-icon-navigation-expand-more"
-        />
-        <UsersForm handleSubmit={this.handleSubmit}/>
-      </MuiThemeProvider>
+      <div>
+        <ButtonAppBar />
+        <Route exact path="/" render={props => <StoryList {...props} stories={this.state.stories} />} />
+        <Route exact path="/signup" render={props => <UsersForm {...props} handleSubmit={this.handleSubmit} />} />
+      </div>
     )
   }
 }
