@@ -1,4 +1,5 @@
 const { Router } = require('express')
+const uuid = require('uuid/v4')
 const storiesGateway = require('../gateway/stories-gateway')
 const multerUpload = require('../multer')
 const googleGateway = require('../google-gateway')
@@ -14,6 +15,7 @@ const storiesRouter = stories => {
     })
     .post('/', multerUpload, async ({ jpeg, mp3, body: { title, content } }, res) => {
       const data = {
+        id: uuid(),
         title: title,
         content: title,
         image: jpeg.fileName,
