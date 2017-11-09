@@ -5,11 +5,13 @@ import uuid from 'uuid/v4'
 import ButtonAppBar from './app-bar'
 import StoryList from './story-list'
 import UsersForm from './users-form'
+import StoryForm from './story-form'
 
 export default class App extends Component {
   constructor(props) {
     super(props)
-    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleUserSubmit = this.handleSubmit.bind(this)
+    this.handleStorySubmit = this.handleStorySubmit.bind(this)
     this.state = { stories: [] }
   }
 
@@ -18,7 +20,7 @@ export default class App extends Component {
     this.setState({ stories: data })
   }
 
-  async handleSubmit(e) {
+  async handleUserSubmit(e) {
     e.preventDefault()
     const formData = new FormData(e.target)
     const userData = {
@@ -33,12 +35,20 @@ export default class App extends Component {
     await axios.post('/api/users', userData)
   }
 
+  async handleStorySubmit(e) {
+    e.preventDefault()
+    const formData = new FormData(e.target)
+    e.target.reset()
+    await axios.post('/api/stories', formData)
+  }
+
   render() {
     return (
       <div>
         <ButtonAppBar />
         <Route exact path="/" render={props => <StoryList {...props} stories={this.state.stories} />} />
-        <Route exact path="/signup" render={props => <UsersForm {...props} handleSubmit={this.handleSubmit} />} />
+        <Route exact path="/signup" render={props => <UsersForm {...props} handleUserSubmit={this.handleUserSubmit} />} />
+        <Route exact path="/upload" render={props => <StoryForm {...props} handleStorySubmit={this.handleStorySubmit} />} />
       </div>
     )
   }
