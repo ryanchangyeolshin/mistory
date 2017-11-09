@@ -6,7 +6,7 @@ module.exports = stories => {
     },
     async createStory(data) {
       const storyData = await stories.insertOne(data)
-      return storyData
+      return storyData.ops[0]
     }
   }
 }
