@@ -9,10 +9,10 @@ module.exports = function googleGateway(file) {
     upload() {
       storage
         .bucket(process.env.BUCKET)
-        .upload('server/uploads' + file)
+        .upload('server/uploads/' + file)
         .then(() => {
           console.log(`${file} uploaded to ${process.env.BUCKET}.`)
-          return fs.unlink('server/uploads' + file)
+          return fs.unlink('server/uploads/' + file)
         })
         .catch(err => console.error('ERROR:', err))
     }
