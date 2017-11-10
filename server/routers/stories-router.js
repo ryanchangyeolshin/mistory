@@ -2,9 +2,8 @@ const { Router } = require('express')
 const uuid = require('uuid/v4')
 const storiesGateway = require('../gateway/stories-gateway')
 const multerUpload = require('../multer')
-const googleGateway = require('../google-gateway')
 
-const storiesRouter = stories => {
+const storiesRouter = (stories, files) => {
   const { findAllStories, createStory } = storiesGateway(stories)
   const router = new Router()
 
@@ -17,13 +16,15 @@ const storiesRouter = stories => {
       const data = {
         id: uuid(),
         title: title,
-        content: title,
+        content: content,
         image: jpeg.fileName,
         audio: mp3.fileName
       }
-      const story = createStory(data)
-      googleGateway(jpeg.fileName).upload()
-      googleGateway(mp3.fileName).upload()
+      const story = await createStory(data)
+      await Promise.all([
+        files.upload(jpeg.fileName),
+        files.upload(mp3.fileName)
+      ])
       res.status(201).json(story)
     })
 
