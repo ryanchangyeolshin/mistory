@@ -10,7 +10,7 @@ import StoryForm from './story-form'
 export default class App extends Component {
   constructor(props) {
     super(props)
-    this.handleUserSubmit = this.handleSubmit.bind(this)
+    this.handleUserSubmit = this.handleUserSubmit.bind(this)
     this.handleStorySubmit = this.handleStorySubmit.bind(this)
     this.state = { stories: [] }
   }
