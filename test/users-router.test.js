@@ -5,6 +5,7 @@ const { MongoClient } = require('mongodb')
 const uuid = require('uuid/v4')
 const axios = require('axios')
 const createApp = require('../server/create-app')
+const googleGateway = require('../server/google-gateway')
 
 describe('users-router', () => {
   let db
@@ -17,6 +18,7 @@ describe('users-router', () => {
       if (err) {
         done(err)
       }
+      const files = googleGateway()
       db = _db
       users = db.collection('users')
       user = {
@@ -27,7 +29,7 @@ describe('users-router', () => {
         email: 'johnsmith@gmail.com',
         confirmEmail: 'johnsmith@gmail.com'
       }
-      server = createApp(_db)
+      server = createApp(_db, files)
         .listen(process.env.PORT, () => done())
     })
   })

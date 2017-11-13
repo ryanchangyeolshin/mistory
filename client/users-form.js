@@ -23,11 +23,11 @@ const styles = {
   }
 }
 
-export default function UsersForm({ handleSubmit }) {
+export default function UsersForm({ handleUserSubmit }) {
   return (
     <Paper style={styles.usersForm}>
       <Typography type="headline" component="h1">Create an Account!</Typography>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleUserSubmit}>
         <div>
           <TextField
             type="text"

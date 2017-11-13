@@ -3,6 +3,10 @@ module.exports = stories => {
     async findAllStories() {
       const storiesData = await stories.find().toArray()
       return storiesData
+    },
+    async createStory(data) {
+      const storyData = await stories.insertOne(data)
+      return storyData.ops[0]
     }
   }
 }
