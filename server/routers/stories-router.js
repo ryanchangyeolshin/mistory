@@ -13,18 +13,19 @@ const storiesRouter = (stories, files) => {
       res.status(200).json(stories)
     })
     .post('/', multerUpload, async ({ jpeg, mp3, body: { title, content } }, res) => {
-      const data = {
-        id: uuid(),
-        title: title,
-        content: content,
-        image: jpeg.fileName,
-        audio: mp3.fileName
-      }
-      const story = await createStory(data)
       await Promise.all([
         files.upload(jpeg.fileName),
         files.upload(mp3.fileName)
       ])
+      const data = {
+        id: uuid(),
+        title: title,
+        content: content,
+        views: 0,
+        image: `https://storage.googleapis.com/mistory-stories/${jpeg.fileName}`,
+        audio: `https://storage.googleapis.com/mistory-stories/${mp3.fileName}`
+      }
+      const story = await createStory(data)
       res.status(201).json(story)
     })
 
