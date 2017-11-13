@@ -9,7 +9,7 @@ module.exports = stories => {
       return storyData.ops[0]
     },
     async findStoryById(id) {
-      const storyData = await stories.find({ id })
+      const storyData = await stories.findOne({ id })
       return storyData
     }
   }
