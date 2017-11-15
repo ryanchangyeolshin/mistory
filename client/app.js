@@ -6,16 +6,24 @@ import ButtonAppBar from './app-bar'
 import StoryList from './story-list'
 import UsersForm from './users-form'
 import StoryForm from './story-form'
+import StoryDetails from './story-details'
 
 class App extends Component {
   constructor(props) {
     super(props)
     this.handleUserSubmit = this.handleUserSubmit.bind(this)
     this.handleStorySubmit = this.handleStorySubmit.bind(this)
-    this.state = { stories: [] }
+    this.seeMoreInfo = this.seeMoreInfo.bind(this)
+    this.state = {
+      stories: [],
+      story: {}
+    }
   }
 
   async componentDidMount() {
+    if (this.props.history.location.pathName !== '/') {
+      this.props.history.push('/')
+    }
     const { data } = await axios.get('/api/stories')
     this.setState({ stories: data })
   }
@@ -39,9 +47,13 @@ class App extends Component {
     e.preventDefault()
     const formData = new FormData(e.target)
     e.target.reset()
-    await axios.post('/api/stories', formData)
-    this.props.history.push('/')
-    this.componentDidMount()
+    const { data } = await axios.post('/api/stories', formData)
+    this.setState({ stories: this.state.stories.concat(data) }, () => this.props.history.push('/'))
+  }
+
+  async seeMoreInfo(id) {
+    const { data } = await axios.get(`/api/stories/${id}`)
+    this.setState({ story: data }, () => this.props.history.push(`/stories/${data.id}`))
   }
 
   render() {
@@ -50,7 +62,10 @@ class App extends Component {
         <ButtonAppBar />
         <Route
           exact path="/"
-          render={props => <StoryList {...props} stories={this.state.stories} />} />
+          render={props => <StoryList {...props} stories={this.state.stories} seeMoreInfo={this.seeMoreInfo} />} />
+        <Route
+          exact path="/stories/:id"
+          render={props => <StoryDetails {...props} story={this.state.story} />} />
         <Route
           exact path="/signup"
           render={props => <UsersForm {...props} handleUserSubmit={this.handleUserSubmit} />} />
