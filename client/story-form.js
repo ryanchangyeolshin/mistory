@@ -23,11 +23,20 @@ const styles = {
     marginBottom: 30
   },
   dropzone: {
+    display: 'inline-block',
+    width: 1000,
     marginTop: 30,
     textAlign: 'center',
     fontFamily: 'Roboto'
   },
   image: {
+    width: 300,
+    marginRight: 20,
+    border: '1px dashed black'
+  },
+  audio: {
+    width: 300,
+    marginLeft: 20,
     border: '1px dashed black'
   }
 }
@@ -66,11 +75,13 @@ export default function StoryForm({ handleStorySubmit }) {
           <Dropzone accept="image/jpeg, image/png" onDrop={onDrop} name="image" className="col-1-2" style={styles.image}>
             <p>Upload an Image</p>
           </Dropzone>
-          <Dropzone accept="audio/*" onDrop={onDrop} name="audio" className="col-1-2" style={styles.image}>
+          <Dropzone accept="audio/*" onDrop={onDrop} name="audio" className="col-1-2" style={styles.audio}>
             <p>Upload an Audio File</p>
           </Dropzone>
         </div>
-        <Button raised color="primary" type="submit" style={styles.submit}>Submit</Button>
+        <div>
+          <Button raised color="primary" type="submit" style={styles.submit}>Submit</Button>
+        </div>
       </form>
     </Paper>
   )
