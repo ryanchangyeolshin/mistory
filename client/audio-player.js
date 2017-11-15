@@ -1,58 +1,6 @@
 import React, { Component } from 'react'
 import Typography from 'material-ui/Typography'
-
-const styles = {
-  audioPlayer: {
-    position: 'fixed',
-    bottom: 0,
-    width: '100%',
-    backgroundColor: '#4054b1',
-    marginRight: 300,
-    marginTop: 30,
-    padding: 30,
-    borderRadius: 5
-  },
-  title: {
-    color: 'white',
-    textDecoration: 'underline',
-    textAlign: 'center',
-    marginBottom: 20
-  },
-  buttons: {
-    position: 'relative',
-    top: 3,
-    marginLeft: 50,
-    color: 'white'
-  },
-  play: {
-    minWidth: 50
-  },
-  pause: {
-    minWidth: 50
-  },
-  stop: {
-    marginLeft: 20
-  },
-  durationBar: {
-    position: 'relative',
-    bottom: 10,
-    width: 700,
-    marginLeft: 50
-  },
-  volumeIcon: {
-    minWidth: 50,
-    position: 'relative',
-    top: 3,
-    color: 'white',
-    marginLeft: 50
-  },
-  volumeBar: {
-    position: 'relative',
-    bottom: 10,
-    width: 150,
-    marginLeft: 20
-  }
-}
+import styles from './styles/styles'
 
 class AudioPlayer extends Component {
   constructor(props) {
@@ -156,8 +104,8 @@ class AudioPlayer extends Component {
     return (
       <div className="audio-player" style={styles.audioPlayer}>
         <audio ref={audio => this.setAudio(audio)} src={this.src} />
-        <Typography type="title" style={styles.title}>{this.title}</Typography>
-        <span className="control-buttons" style={styles.buttons}>
+        <Typography type="title" style={styles.audioTitle}>{this.title}</Typography>
+        <span className="control-buttons" style={styles.audioButtons}>
           {this.togglePlay()}
           <i className="fa fa-stop fa-3x" style={styles.stop} onClick={this.handleStop} />
         </span>

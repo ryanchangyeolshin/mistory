@@ -4,28 +4,7 @@ import Paper from 'material-ui/Paper'
 import TextField from 'material-ui/TextField'
 import Button from 'material-ui/Button'
 import StoryCard from './story-card'
-
-const styles = {
-  paper: {
-    marginTop: 50,
-    padding: 30
-  },
-  textField: {
-    width: 950,
-    marginTop: 30
-  },
-  searchBar: {
-    textAlign: 'center'
-  },
-  icon: {
-    marginLeft: 30,
-    marginRight: 10
-  },
-  button: {
-    marginLeft: 45,
-    marginRight: 40
-  }
-}
+import styles from './styles/styles'
 
 export default function StoryList({ stories, seeMoreInfo }) {
   return (
@@ -36,10 +15,10 @@ export default function StoryList({ stories, seeMoreInfo }) {
           type="text"
           label="Search"
           name="search"
-          style={styles.textField}
+          style={styles.searchField}
         />
         <Link to="/upload">
-          <Button raised color="primary" style={styles.button}>
+          <Button raised color="primary" style={styles.postButton}>
             Post a Story
           </Button>
         </Link>
