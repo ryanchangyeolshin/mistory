@@ -18,19 +18,20 @@ const styles = {
     textAlign: 'center'
   },
   icon: {
+    marginLeft: 30,
     marginRight: 10
   },
   button: {
-    marginLeft: 40,
+    marginLeft: 45,
     marginRight: 40
   }
 }
 
-export default function StoryList({ stories }) {
+export default function StoryList({ stories, seeMoreInfo }) {
   return (
     <div>
       <div style={styles.searchBar}>
-        <i className="material-icons" style={styles.icon}>search</i>
+        <i className="fa fa-search" style={styles.icon} />
         <TextField
           type="text"
           label="Search"
@@ -44,7 +45,7 @@ export default function StoryList({ stories }) {
         </Link>
       </div>
       <Paper className="grid grid-pad" style={styles.paper}>
-        {stories.map(story => <StoryCard key={story.id} story={story} />)}
+        {stories.map(story => <StoryCard key={story.id} story={story} seeMoreInfo={seeMoreInfo} />)}
       </Paper>
     </div>
   )
