@@ -4,7 +4,7 @@ const storiesGateway = require('../gateway/stories-gateway')
 const multerUpload = require('../multer')
 
 const storiesRouter = (stories, files) => {
-  const { findAllStories, createStory } = storiesGateway(stories)
+  const { findAllStories, createStory, findStoryById } = storiesGateway(stories)
   const router = new Router()
 
   router
@@ -27,6 +27,12 @@ const storiesRouter = (stories, files) => {
       }
       const story = await createStory(data)
       res.status(201).json(story)
+    })
+    .get('/:id', async ({ params: { id } }, res) => {
+      const story = await findStoryById(id)
+      story === null
+        ? res.json(story)
+        : res.status(200).json(story)
     })
 
   return router

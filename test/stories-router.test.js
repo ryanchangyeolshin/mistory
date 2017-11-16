@@ -95,4 +95,22 @@ describe('stories-router', () => {
       })
     })
   })
+
+  describe('GET /api/stories/:id', () => {
+    it('should return the information of the story', async () => {
+      const { status, data } = await axios.get(`http://localhost:${process.env.PORT}/api/stories/${story.id}`)
+      const { id, title, author, content, image } = data
+      expect(id).to.include(story.id)
+      expect(title).to.include(story.title)
+      expect(author).to.include(story.author)
+      expect(content).to.include(story.content)
+      expect(image).to.include(story.image)
+      expect(status).to.equal(200)
+    })
+
+    it('should return null when the story is not found', async () => {
+      const { data } = await axios.get(`http://localhost:${process.env.PORT}/api/stories/LMAO`)
+      expect(data).to.equal(null)
+    })
+  })
 })

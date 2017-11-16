@@ -3,25 +3,7 @@ import Paper from 'material-ui/Paper'
 import TextField from 'material-ui/TextField'
 import Typography from 'material-ui/Typography'
 import Button from 'material-ui/Button'
-
-const styles = {
-  usersForm: {
-    marginLeft: 100,
-    marginRight: 100,
-    marginTop: 50,
-    paddingLeft: 100,
-    paddingRight: 100,
-    paddingTop: 40,
-    textAlign: 'center'
-  },
-  textField: {
-    marginTop: 30
-  },
-  submit: {
-    marginTop: 30,
-    marginBottom: 30
-  }
-}
+import styles from './styles/styles'
 
 export default function UsersForm({ handleUserSubmit }) {
   return (
@@ -33,7 +15,7 @@ export default function UsersForm({ handleUserSubmit }) {
             type="text"
             label="Username"
             name="username"
-            style={styles.textField}
+            style={styles.userInputField}
             fullWidth={true}
           />
         </div>
@@ -42,7 +24,7 @@ export default function UsersForm({ handleUserSubmit }) {
             type="password"
             label="Password"
             name="password"
-            style={styles.textField}
+            style={styles.userInputField}
             fullWidth={true}
           />
         </div>
@@ -55,7 +37,7 @@ export default function UsersForm({ handleUserSubmit }) {
             InputLabelProps={{
               shrink: true
             }}
-            style={styles.textField}
+            style={styles.userInputField}
             fullWidth={true}
           />
         </div>
@@ -64,7 +46,7 @@ export default function UsersForm({ handleUserSubmit }) {
             type="email"
             label="Email Address"
             name="email"
-            style={styles.textField}
+            style={styles.userInputField}
             fullWidth={true}
           />
         </div>
@@ -73,11 +55,11 @@ export default function UsersForm({ handleUserSubmit }) {
             type="email"
             label="Confirm Email Address"
             name="confirmEmail"
-            style={styles.textField}
+            style={styles.userInputField}
             fullWidth={true}
           />
         </div>
-        <Button raised color="primary" type="submit" style={styles.submit}>Submit</Button>
+        <Button raised color="primary" type="submit" style={styles.submitUser}>Submit</Button>
       </form>
     </Paper>
   )

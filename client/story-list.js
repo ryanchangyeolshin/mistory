@@ -4,47 +4,27 @@ import Paper from 'material-ui/Paper'
 import TextField from 'material-ui/TextField'
 import Button from 'material-ui/Button'
 import StoryCard from './story-card'
+import styles from './styles/styles'
 
-const styles = {
-  paper: {
-    marginTop: 50,
-    padding: 30
-  },
-  textField: {
-    width: 950,
-    marginTop: 30
-  },
-  searchBar: {
-    textAlign: 'center'
-  },
-  icon: {
-    marginRight: 10
-  },
-  button: {
-    marginLeft: 40,
-    marginRight: 40
-  }
-}
-
-export default function StoryList({ stories }) {
+export default function StoryList({ stories, seeMoreInfo }) {
   return (
     <div>
       <div style={styles.searchBar}>
-        <i className="material-icons" style={styles.icon}>search</i>
+        <i className="fa fa-search" style={styles.icon} />
         <TextField
           type="text"
           label="Search"
           name="search"
-          style={styles.textField}
+          style={styles.searchField}
         />
         <Link to="/upload">
-          <Button raised color="primary" style={styles.button}>
+          <Button raised color="primary" style={styles.postButton}>
             Post a Story
           </Button>
         </Link>
       </div>
       <Paper className="grid grid-pad" style={styles.paper}>
-        {stories.map(story => <StoryCard key={story.id} story={story} />)}
+        {stories.map(story => <StoryCard key={story.id} story={story} seeMoreInfo={seeMoreInfo} />)}
       </Paper>
     </div>
   )

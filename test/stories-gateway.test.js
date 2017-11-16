@@ -11,6 +11,7 @@ describe('storiesGateway', () => {
   let story
   let findAllStories
   let createStory
+  let findStoryById
 
   before('Connect to MongoDB', done => {
     MongoClient.connect(process.env.MONGODB_URI, (err, _db) => {
@@ -28,6 +29,7 @@ describe('storiesGateway', () => {
       }
       findAllStories = storiesGateway(stories).findAllStories
       createStory = storiesGateway(stories).createStory
+      findStoryById = storiesGateway(stories).findStoryById
       done()
     })
   })
@@ -68,6 +70,18 @@ describe('storiesGateway', () => {
       expect(author).to.equal(testStory.author)
       expect(content).to.equal(testStory.content)
       expect(image).to.equal(testStory.image)
+    })
+  })
+
+  describe('findStoryById()', () => {
+    it('should return all of the information about the story', async () => {
+      const data = await findStoryById(story.id)
+      const { id, title, author, content, image } = data
+      expect(id).to.equal(story.id)
+      expect(author).to.equal(story.author)
+      expect(title).to.equal(story.title)
+      expect(content).to.equal(story.content)
+      expect(image).to.equal(story.image)
     })
   })
 })

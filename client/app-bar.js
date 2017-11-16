@@ -6,20 +6,7 @@ import Typography from 'material-ui/Typography'
 import Button from 'material-ui/Button'
 import IconButton from 'material-ui/IconButton'
 import MenuIcon from 'material-ui-icons/Menu'
-
-const styles = {
-  root: {
-    marginTop: 10,
-    width: '100%'
-  },
-  flex: {
-    flex: 1
-  },
-  menuButton: {
-    marginLeft: -12,
-    marginRight: 20
-  }
-}
+import styles from './styles/styles'
 
 export default function ButtonAppBar() {
   return (
