@@ -58,10 +58,6 @@ class AudioPlayer extends Component {
     this.audio.currentTime = this.slider.value
   }
 
-  volumeChange() {
-
-  }
-
   toggleVolume() {
     if (this.state.volume > 0.5) {
       return <i className="fa fa-volume-up fa-3x" style={styles.volumeIcon} onClick={this.handlePlay} />
