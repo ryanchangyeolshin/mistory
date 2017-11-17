@@ -176,6 +176,27 @@ const styles = {
   submitUser: {
     marginTop: 30,
     marginBottom: 30
+  },
+  loginForm: {
+    marginLeft: 100,
+    marginRight: 100,
+    marginTop: 50,
+    paddingLeft: 100,
+    paddingRight: 100,
+    paddingTop: 40,
+    textAlign: 'center'
+  },
+  loginInputField: {
+    marginTop: 30
+  },
+  submitLogin: {
+    marginTop: 30,
+    marginBottom: 30
+  },
+  welcomeMessage: {
+    textTransform: 'uppercase',
+    color: 'white',
+    fontWeight: 700
   }
 }
 
