@@ -10,6 +10,7 @@ describe('usersGateway', () => {
   let users
   let user
   let createUser
+  let findUser
 
   before('Connect to MongoDB', done => {
     MongoClient.connect(process.env.MONGODB_URI, (err, _db) => {
@@ -27,6 +28,7 @@ describe('usersGateway', () => {
         confirmEmail: 'johnsmith@gmail.com'
       }
       createUser = usersGateway(users).createUser
+      findUser = usersGateway(users).findUser
       done()
     })
   })
@@ -56,6 +58,23 @@ describe('usersGateway', () => {
       expect(birthdate).to.equal(testUser.birthdate)
       expect(email).to.equal(testUser.email)
       expect(confirmEmail).to.equal(testUser.confirmEmail)
+    })
+  })
+
+  describe('findUserById()', () => {
+    it('should find the user with the associated ID and return user info', async () => {
+      const { id, username, password, birthdate, email, confirmEmail } = await findUser(user.username)
+      expect(id).to.equal(user.id)
+      expect(username).to.equal(user.username)
+      expect(password).to.equal(user.password)
+      expect(birthdate).to.deep.equal(user.birthdate)
+      expect(email).to.equal(user.email)
+      expect(confirmEmail).to.equal(user.confirmEmail)
+    })
+
+    it('should return null when the user is not found', async () => {
+      const notFound = await findUser('LMAO')
+      expect(notFound).to.equal(null)
     })
   })
 })
