@@ -1,4 +1,5 @@
 # mistory
+[![Build Status](https://travis-ci.org/ryanchangyeolshin/mistory.svg?branch=master)](https://travis-ci.org/ryanchangyeolshin/mistory)
 A web application for storytellers who wants to share their personal stories.
 
 (Currently in the process of implementing authentication and authorization. Deployment to Heroku also coming soon.)
