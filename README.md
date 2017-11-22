@@ -1,5 +1,6 @@
 # mistory
 [![Build Status](https://travis-ci.org/ryanchangyeolshin/mistory.svg?branch=master)](https://travis-ci.org/ryanchangyeolshin/mistory)
+[![npm](https://img.shields.io/npm/l/express.svg)]()
 
 A web application for storytellers who wants to share their personal stories.
 
