@@ -30,7 +30,9 @@ class ButtonAppBar extends Component {
               <MenuIcon />
             </IconButton>
             <Typography type="title" color="inherit" style={styles.flex}>
+              <NavLink to ="/">
               Mistory
+              </NavLink>
             </Typography>
             {this.renderLogin()}
             <NavLink to="/signup"><Button color="contrast">Sign Up</Button></NavLink>
