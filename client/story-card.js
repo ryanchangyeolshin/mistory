@@ -5,7 +5,7 @@ import Button from 'material-ui/Button'
 import Typography from 'material-ui/Typography'
 import styles from './styles/styles'
 
-export default function StoryCard({ story, seeMoreInfo }) {
+export default function StoryCard({ story, seeMoreInfo, token }) {
   return (
     <div className="col-1-4">
       <Card className="content" style={styles.storyCard}>
