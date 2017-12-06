@@ -12,14 +12,16 @@ const storiesRouter = (stories, files) => {
       const stories = await findAllStories()
       res.status(200).json(stories)
     })
-    .post('/', multerUpload, async ({ jpeg, mp3, body: { title, content } }, res) => {
+    .post('/', multerUpload, async ({ jpeg, mp3, body: { title, author, content } }, res) => {
       await Promise.all([
         files.upload(jpeg.fileName),
         files.upload(mp3.fileName)
       ])
+      console.log(title, author, content)
       const data = {
         id: uuid(),
         title: title,
+        author: author,
         content: content,
         views: 0,
         image: `https://storage.googleapis.com/mistory-stories/${jpeg.fileName}`,
